@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My projects</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+        <meta charset="UTF-8">
+
+
+
+    </head>
+    <body>
+    <div class="bubbles">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span> <!--bulles-->
+    </div>
+    <header>
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li><a href="#presentation">Home</a></li>
+                <li><a href="#about">About me</a></li>
+                <li><a href="#projects">projects</a></li>
+                <li><a href="#contact">contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <section id="presentation">
+        <h1 class="welcoming">Welcome to my page !</h1>
+        <a href="#about" class="arrow-down">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="about-box">
+            <div class="about-text">
+            <h2>About Me</h2>
+            <p>
+                I'm Maurice, currently in my 1st year of a Computer Science Bachelor's at the Catholic University of Louvain.<br><br>
+                I've already worked on several projects and learned a lot, and I'm not planning to stop anytime soon.<br><br>
+                I'm really passionate about tech and programming as I know Python, CSS, HTML, and C.<br><br>
+                You can see my work a bit further down this page or directly on my 
+                <a href="https://github.com/SuperMorisl" target="_blank">GitHub</a>.<br><br>
+                And yes, you might notice I love adding music to some of my projects .
+            </p>
+            </div>
+            <div class="about-image">
+            <img src="images/ucl.png" alt="UCLouvain logo">
+            </div>
+        </div>
+        <div class="note-wrapper">
+            <a href="#music" style="display:block; text-align:center; font-size:2rem; color:#ABA0F9;">
+                <i class="fas fa-music"></i>
+            </a>
+
+        </div>
+    </section>
+    <section id="music" class="music-section hidden">
+        <div class="music-content">
+            <h2>🎸 Music</h2>
+            <p>I've been playing guitar for   4 years at the conservatory.<br>
+            I've finished music theory classes and I keep rocking with real style!</p>
+        </div>
+    </section>
+    <br><br><br><br><br><br><br>
+    <section id="projects" class="projects-section">
+        <div class="text-box">
+            <p>
+            My biggest project for the moment is the babyphone made in a team of 4 for University projects.<br>
+            Here you have a photo and a link<a href="https://github.com/SuperMorisl/microbit" target="_blank"> to the github repo.</a><br>
+            In this project we needed to build a babyphone by using 2 microbits, the difficulties was about the unknown because
+            on this project we haven't know how to code really well in python but we were learning.<br>
+            In term of technic the main difficulty was to pass a message from one baby phone to another and using vigener encryption and hashing the password to detect the messages
+            that was sent from one microbit to another.<br>
+            For more details and other projects you can see on my github.
+            </p>
+        </div>
+        <div class="image-box">
+            <img src="images/microbit.png" alt="Microbit photo">
+        </div>
+    </section>
+
+    <section id="contact"></section>
+    <script src="script.js"></script>
+    </body>
+
+</html>

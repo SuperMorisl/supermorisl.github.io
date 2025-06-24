@@ -1,0 +1,329 @@
+html {
+  scroll-behavior: smooth;
+  background-color: #FEFEFF;
+}
+
+*{         /* supprime les marges par défaut du navigateur*/
+  margin: 0;
+  padding: 0;   
+  box-sizing: border-box;
+}
+/* Rend le header fixe en haut */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+/* Empêche la liste d’être verticale */
+.nav-list {
+  list-style: none;
+  display: flex;           /* ← rend les <li> horizontaux */
+  gap: 2rem;               /* ← espace entre les éléments */
+  margin: 0;
+  padding: 0;
+  justify-content: center; /* ← centre horizontalement */
+  align-items: center;
+}
+.nav-list li a {
+  border: 1px solid #7C80FC;
+  border-radius: 5px; /* optionnel, pour des bords arrondis */
+  padding: 0.5rem 1rem;
+}
+/* Gère l’apparence de la barre */
+.navbar {
+  background-color: #D6CFFF;
+  padding: 1rem 0;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Style des liens */
+.nav-list a {
+  text-decoration: none;
+  color: #7C80FC;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-list a:hover {
+  color: #0077cc;
+}
+
+section {
+  padding-top: 10px; /* Ajuste selon la hauteur réelle de ta navbar */
+}
+
+.welcoming {
+  font-size: 3rem;
+  color: #ABA0F9;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* petit effet de profondeur */
+  z-index: 1;
+
+}
+
+#presentation {
+  display: flex;
+  justify-content: center;    /* centre horizontalement */
+  align-items: center;        /* centre verticalement */
+  height: 80vh;              /* prend toute la hauteur de l’écran */
+  text-align: center;
+  flex-direction: column;     /* utile si tu as plusieurs éléments empilés */
+}
+
+.arrow-down {
+  display: inline-block;
+  font-size: 2rem;
+  color: #ABA0F9;
+  animation: bounce 2s infinite;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Animation de rebond */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translate(-50%, 0);
+  }
+  40% {
+    transform: translate(-50%, -10px);
+  }
+  60% {
+    transform: translate(-50%, -5px);
+  }
+}
+
+
+
+.bubbles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bubbles span {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #D6CFFF;
+  box-shadow: 0 0 12px rgba(171, 160, 249, 0.6);
+}
+
+/* Exemple de positionnement */
+.bubbles span:nth-child(1) { width: 80px; height: 80px; top: 10%; left: 15%; }
+.bubbles span:nth-child(2) { width: 50px; height: 50px; top: 30%; left: 70%; }
+.bubbles span:nth-child(1) { width: 80px; height: 80px; top: 10%; left: 15%; }
+.bubbles span:nth-child(2) { width: 50px; height: 50px; top: 30%; left: 70%; }
+.bubbles span:nth-child(3) { width: 40px; height: 40px; top: 60%; left: 25%; }
+.bubbles span:nth-child(4) { width: 100px; height: 100px; top: 80%; left: 50%; }
+.bubbles span:nth-child(5) { width: 30px; height: 30px; top: 20%; left: 80%; }
+.bubbles span:nth-child(6) { width: 60px; height: 60px; top: 50%; left: 40%; }
+.bubbles span:nth-child(7) { width: 45px; height: 45px; top: 75%; left: 10%; }
+.bubbles span:nth-child(8) { width: 90px; height: 90px; top: 35%; left: 60%; }
+.bubbles span:nth-child(9) { width: 25px; height: 25px; top: 5%; left: 90%; }
+.bubbles span:nth-child(10){ width: 70px; height: 70px; top: 65%; left: 5%; }
+
+
+.bubbles::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(to bottom, #FEFEFF, transparent);
+  z-index: 1;
+}
+.about-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 20px;
+  min-height: 100vh;
+  text-align: center;
+  position: relative;
+}
+
+
+.about-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 900px;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  gap: 30px;
+  align-items: center;
+  opacity: 0;
+  transform: translateX(-50px); /* décalé à gauche */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.about-box.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.about-text {
+  flex: 1 1 55%;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.about-text h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.about-text a {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+.about-image {
+  flex: 1 1 40%;
+  text-align: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  max-height: 250px;
+  object-fit: contain;
+}
+
+
+.note-down {
+  font-size: 2rem;
+  color: #ABA0F9;
+  animation: bounce 2s infinite;
+  text-decoration: none;
+}
+
+.note-wrapper {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Section musique */
+.music-section {
+  color: #fff;
+  padding: 100px 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Rock Salt', cursive; /* ou un autre via Google Fonts */
+  background: linear-gradient(to bottom, #FEFEFF, #1c1c1c , #FEFEFF 100%);
+  /* ↑ Départ blanc, fondu noir au milieu, re-blanc ensuite */
+  z-index: 0;
+
+}
+
+.music-section p, .music-section h2 {
+  font-size: 2rem; /* ou plus grand */
+}
+
+
+/* Boîte de contenu musique */
+.music-content {
+  max-width: 100%;
+  border: 2px solid #fff;
+  box-shadow:
+    0 0 10px #7C80FC,
+    0 0 20px #7C80FC,
+    0 0 30px #ABA0F9,
+    0 0 40px #7C80FC;
+  max-width: 800px;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 20px;
+  border: 2px solid #fff;
+  backdrop-filter: blur(4px);
+  transform: scale(0.8);
+  opacity: 1;
+  transition: all 0.8s ease-out;
+}
+.music-section.show .music-content {
+  transition: opacity 1.2s ease, transform 1.2s ease;
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+
+
+/* Animation d'apparition */
+.music-section.show .music-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Initialement caché */
+.hidden {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+
+
+
+.projects-section {
+  display: flex;
+  gap: 3rem; /* plus d’espace */
+  padding: 40px 30px; /* plus d’espace autour */
+  align-items: center;
+  max-width: 1000px;
+  margin: auto;
+  background-color: white; /* ou une couleur claire */
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow:
+    0 0 20px #7C80FC,
+    0 0 40px #ABA0F9;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  /* autres styles */
+}
+.projects-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+.text-box {
+  flex: 1;
+  border: 2px solid #7C80FC;
+  padding: 25px;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.image-box {
+  flex: 1;
+  text-align: center;
+}
+
+.image-box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #7C80FC;
+}
