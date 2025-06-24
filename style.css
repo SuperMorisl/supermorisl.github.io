@@ -107,7 +107,7 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
 }
 
@@ -119,8 +119,6 @@ section {
 }
 
 /* Exemple de positionnement */
-.bubbles span:nth-child(1) { width: 80px; height: 80px; top: 10%; left: 15%; }
-.bubbles span:nth-child(2) { width: 50px; height: 50px; top: 30%; left: 70%; }
 .bubbles span:nth-child(1) { width: 80px; height: 80px; top: 10%; left: 15%; }
 .bubbles span:nth-child(2) { width: 50px; height: 50px; top: 30%; left: 70%; }
 .bubbles span:nth-child(3) { width: 40px; height: 40px; top: 60%; left: 25%; }
@@ -167,6 +165,9 @@ section {
   opacity: 0;
   transform: translateX(-50px); /* décalé à gauche */
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  margin-left: auto;      /*les 2 margin sont la pour que le tableau projects ne soir pas collé a gauche*/
+  margin-right: auto;
+
 }
 
 .about-box.visible {
@@ -220,18 +221,18 @@ section {
 
 /* Section musique */
 .music-section {
+  display: flex;
   color: #fff;
   padding: 100px 20px;
   min-height: 100vh;
-  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   font-family: 'Rock Salt', cursive; /* ou un autre via Google Fonts */
-  background: linear-gradient(to bottom, #FEFEFF, #1c1c1c , #FEFEFF 100%);
-  /* ↑ Départ blanc, fondu noir au milieu, re-blanc ensuite */
+    background: linear-gradient(to bottom, rgba(254, 254, 255, 0), rgba(28, 28, 28, 0.8), rgba(254, 254, 255, 0));  /* ↑ Départ blanc, fondu noir au milieu, re-blanc ensuite */
   z-index: 0;
-
+  position: relative;
+  overflow: hidden;
 }
 
 .music-section p, .music-section h2 {
@@ -257,29 +258,19 @@ section {
   transform: scale(0.8);
   opacity: 1;
   transition: all 0.8s ease-out;
+  
 }
 .music-section.show .music-content {
   transition: opacity 1.2s ease, transform 1.2s ease;
-  opacity: 1;
-  transform: scale(1);
+
 }
 
-
-
-
-/* Animation d'apparition */
-.music-section.show .music-content {
-  transform: scale(1);
-  opacity: 1;
-}
 
 /* Initialement caché */
 .hidden {
   opacity: 0;
   transition: opacity 0.5s ease;
 }
-
-
 
 
 .projects-section {
@@ -289,7 +280,6 @@ section {
   align-items: center;
   max-width: 1000px;
   margin: auto;
-  background-color: white; /* ou une couleur claire */
   padding: 20px;
   border: 1px solid #ccc;
   box-shadow:
@@ -298,14 +288,14 @@ section {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
-  /* autres styles */
+  z-index: 0;
+  position: relative;
+  
 }
 .projects-section.visible {
   opacity: 1;
   transform: translateY(0);
 }
-
-
 
 .text-box {
   flex: 1;
@@ -326,4 +316,67 @@ section {
   height: auto;
   border-radius: 15px;
   box-shadow: 0 0 15px #7C80FC;
+}
+
+
+.laptop-down {
+  display: block;
+  font-size: 2rem;
+  color: #ABA0F9;
+  animation: bounce 2s infinite;
+  bottom: 10px;
+  left: 50%;
+  z-index: 2;
+  
+}
+
+.laptop-wrapper{
+  position:absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+}
+
+
+
+
+
+#contact {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+#contact h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #ABA0F9;
+}
+
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.contact-icons a i {
+  font-size: 2.5rem;
+  color: #ABA0F9;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.contact-icons a:hover i {
+  transform: scale(1.2);
+  color: #7C80FC;
+}
+
+
+
+footer {
+  text-align: center;
+  padding: 15px 0;
+  background-color: #b6b8fae1;
+  color: #7C80FC;
+  font-size: 1rem;
+  
 }
